@@ -10,7 +10,7 @@ class Product extends Model {}
 Product.init(
     //TODO define columns
     {
-      tag_id: {
+      id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         allowNull: false,

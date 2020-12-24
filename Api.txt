@@ -3,4 +3,19 @@ GET http://localhost:3001/api/categories/
 
 GET http://localhost:3001/api/products/
 
-PUT http://localhost:3001/api/products/
+GET http://localhost:3001/api/tags/
+
+##GET SINGLE APIs
+GET http://localhost:3001/api/categories/2
+
+GET http://localhost:3001/api/products/1
+
+GET http://localhost:3001/api/tags/3
+
+## POST, PUT, DELETE
+
+POST http://localhost:3001/api/categories/
+
+PUT http://localhost:3001/api/categories/
+
+DELETE http://localhost:3001/api/categories/

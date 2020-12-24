@@ -84,7 +84,7 @@ router.post('/', (req, res) => {
       if (req.body.tag_id.length) {
         const productTagIdArr = req.body.tag_id.map((tag_id) => {
           return {
-            product_id: product.id,
+            id: product.id,
             tag_id,
           };
         });
@@ -103,14 +103,22 @@ router.post('/', (req, res) => {
 // update product
 router.put('/:id', (req, res) => {
   // update product data
-  Product.update(req.body, {
-    where: {
-      id: req.params.id,
+  Product.update({
+    id: req.params.id,
+    product_name: req.body.product_name,
+    price: req.body.price,
+    stock: req.body.stock,
+    Category_id: req.body.Category_id,
+    tag_id: req.body.tag_id
     },
+    {
+    where: {
+     id: req.params.id
+    }
   })
     .then((productTag) => {
       // find all associated tags from ProductTag
-      return productTag.findAll({ where: { product_id: req.params.id } });
+      return productTag.findAll({ where: { id: req.params.id } });
     })
     .then((productTags) => {
       // get list of current tag_ids
@@ -120,7 +128,7 @@ router.put('/:id', (req, res) => {
         .filter((tag_id) => !productTagIds.includes(tag_id))
         .map((tag_id) => {
           return {
-            product_id: req.params.id,
+            id: req.params.id,
             tag_id,
           };
         });
