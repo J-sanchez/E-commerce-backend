@@ -8,7 +8,6 @@ Because this application won’t be deployed, you’ll also need to provide a li
 
 Before you start, clone the [starter code](https://github.com/coding-boot-camp/fantastic-umbrella).
 
-
 ## User Story
 
 ```md
@@ -29,8 +28,8 @@ WHEN I enter the command to invoke the application
 THEN my server is started and the Sequelize models are synced to the MySQL database
 WHEN I open API GET routes in Insomnia for categories, products, or tags
 THEN the data for each of these routes is displayed in a formatted JSON
-WHEN I open API GET routes in Insomnia for a single category, product, or tag
-THEN the data for that category, product, or tag is displayed in a formatted JSON
+WHEN I open API GET routes in Insomnia for a single Category, product, or tag
+THEN the data for that Category, product, or tag is displayed in a formatted JSON
 WHEN I test API POST, PUT, and DELETE routes in Insomnia
 THEN I am able to successfully create, update, and delete data in my database
 ```
@@ -45,7 +44,7 @@ The first animation shows GET routes to return all categories, all products, and
 
 ![Insomnia Demo](./Assets/13-orm-homework-demo-01.gif)
 
-The second animation shows GET routes to return a single category, a single product, and a single tag being tested in Insomnia:
+The second animation shows GET routes to return a single Category, a single product, and a single tag being tested in Insomnia:
 
 ![Insomnia Demo](./Assets/13-orm-homework-demo-02.gif)
 
@@ -54,7 +53,6 @@ The final animation shows the POST, PUT, and DELETE routes for categories being 
 ![Insomnia Demo](./Assets/13-orm-homework-demo-03.gif)
 
 Your walkthrough video should also show the POST, PUT, and DELETE routes for products and tags being tested in Insomnia.
-
 
 ## Getting Started
 
@@ -66,89 +64,97 @@ Use the `schema.sql` file in the `db` folder to create your database using MySQL
 
 Your database should contain the following four models, including the requirements listed for each model:
 
-* `Category`
+- `Category`
 
-  * `id`
-    * Integer
-    * Doesn't allow null values
-    * Set as primary key
-    * Use auto increment
+  - `id`
 
-  * `category_name`
-    * String
-    * Doesn't allow null values
+    - Integer
+    - Doesn't allow null values
+    - Set as primary key
+    - Use auto increment
 
-* `Product`
+  - `Category_name`
+    - String
+    - Doesn't allow null values
 
-  * `id`
-    * Integer
-    * Don't allow null values
-    * Set as primary key
-    * Use auto increment
+- `Product`
 
-  * `product_name`
-    * String
-    * Doesn't allow null values
+  - `id`
 
-  * `price`
-    * Decimal
-    * Doesn't allow null values
-    * Validate that the value is a decimal
+    - Integer
+    - Don't allow null values
+    - Set as primary key
+    - Use auto increment
 
-  * `stock`
-    * Integer
-    * Doesn't allow null values
-    * Set a default value of 10
-    * Validate that the value is numeric
+  - `product_name`
 
-  * `category_id`
-    * Integer
-    * Reference the `category` model's `id` 
+    - String
+    - Doesn't allow null values
 
-* `Tag`
+  - `price`
 
-  * `id`
-    * Integer
-    * Don't allow null values
-    * Set as primary key
-    * Use auto increment
+    - Decimal
+    - Doesn't allow null values
+    - Validate that the value is a decimal
 
-  * `tag_name`
-    * String
+  - `stock`
 
-* `ProductTag`
+    - Integer
+    - Doesn't allow null values
+    - Set a default value of 10
+    - Validate that the value is numeric
 
-  * `id`
-    * Integer
-    * Don't allow null values
-    * Set as primary key
-    * Use auto increment
+  - `Category_id`
+    - Integer
+    - Reference the `Category` model's `id`
 
-  * `product_id`
-    * Integer
-    * Reference the `product` model's `id`
+- `Tag`
 
-  * `tag_id`
-    * Integer
-    * Reference the `tag` model's `id`
+  - `id`
+
+    - Integer
+    - Don't allow null values
+    - Set as primary key
+    - Use auto increment
+
+  - `tag_name`
+    - String
+
+- `ProductTag`
+
+  - `id`
+
+    - Integer
+    - Don't allow null values
+    - Set as primary key
+    - Use auto increment
+
+  - `product_id`
+
+    - Integer
+    - Reference the `product` model's `id`
+
+  - `tag_id`
+    - Integer
+    - Reference the `tag` model's `id`
 
 ### Associations
 
 You'll need to execute association methods on your Sequelize models to create the following relationships between them:
 
-* `Product` belongs to `Category`, as a Category can have multiple Products but a Product can only belong to one Category
+- `Product` belongs to `Category`, as a Category can have multiple Products but a Product can only belong to one Category
 
-* `Category` has many `Product`
+- `Category` has many `Product`
 
-* `Product` belongs to many `Tag`, using the `ProductTag` through model, allow Products to have multiple Tags and Tags have many Products
+- `Product` belongs to many `Tag`, using the `ProductTag` through model, allow Products to have multiple Tags and Tags have many Products
 
-* `Tag` belongs to many `Product`
+- `Tag` belongs to many `Product`
 
 > **Hint:** Make sure you set up foreign key relationships that match the column we created in the respective models.
 
 ### Fill out the API Routes to Perform RESTful CRUD Operations
 
-Fill out the unfinished routes in `product-routes.js`, `tag-routes.js`, and `category-routes.js` to perform Create, Read, Update, and Delete operations using your Sequelize models.
+Fill out the unfinished routes in `product-routes.js`, `tag-routes.js`, and `Category-routes.js` to perform Create, Read, Update, and Delete operations using your Sequelize models.
 
 > **Note:** The functionality for creating the many-to-many relationship for products is already done for you.
 
@@ -162,14 +168,14 @@ After creating the models and routes, run `npm run seed` to seed data to your da
 
 Create the code needed in `server.js` to sync our Sequelize models to our MySQL database on server start.
 
-
 ## Review
 
 You are required to submit BOTH of the following for review:
 
-* A walkthrough video demonstrating the functionality of the application and all of the acceptance criteria being met.
+- A walkthrough video demonstrating the functionality of the application and all of the acceptance criteria being met.
 
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+- The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
 
-- - -
+---
+
 © 2020 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.

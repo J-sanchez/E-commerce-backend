@@ -1,6 +1,6 @@
 const { Category } = require('../models');
 
-const categoryData = [
+const CategoryData = [
   {
     Category_name: 'Shirts',
   },

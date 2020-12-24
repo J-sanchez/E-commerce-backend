@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     {
       include: {
         model: Product,
-        attributes: ['id', 'product_name', 'price', 'stock', 'category_id']    // be sure to include its associated Products
+        attributes: ['id', 'product_name', 'price', 'stock', 'Category_id']    // be sure to include its associated Products
       }
     })
   .then(CategoryData => res.json(CategoryData))
@@ -20,14 +20,14 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  // TODO find one category by its `id` value
+  // TODO find one Category by its `id` value
   Category.findOne({
     where: {
       id: req.params.id
     },
     include: {
       model: Product,
-      attributes: ['category_id']   // be sure to include its associated Products /:id
+      attributes: ['Category_id']   // be sure to include its associated Products /:id
     }
   })
   .then(CategoryData => res.json(CategoryData))
@@ -38,9 +38,9 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // TODO create a new category
+  // TODO create a new Category
   Category.create({
-    Category_name: req.body.category_name
+    Category_name: req.body.Category_name
   })
   .then(CategoryData => res.json(CategoryData))
   .catch(err => {
@@ -50,7 +50,7 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  // TODO update a category by its `id` value
+  // TODO update a Category by its `id` value
   Category.update(
     {
       Category_name: req.body.Category_name
@@ -74,18 +74,18 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  // TODO delete a category by its `id` value
+  // TODO delete a Category by its `id` value
   Category.destroy({
     where: {
       id: req.params.id
     }
   })
-    .then(categoryData => {
-      if (!categoryData) {
+    .then(CategoryData => {
+      if (!CategoryData) {
         res.status(404).json({ message: 'No Category found with that ID.' });
         return;
       }
-      res.json(categoryData);
+      res.json(CategoryData);
     })
     .catch(err => {
       console.log(err);
