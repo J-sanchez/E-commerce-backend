@@ -2,11 +2,11 @@
   "name": "module-13-challenge-orm",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "wymb.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "watch": "nodemon server.js",
+    "start": "node wymb.js",
+    "watch": "nodemon wymb.js",
     "seed": "node seeds/index.js"
   },
   "repository": {
