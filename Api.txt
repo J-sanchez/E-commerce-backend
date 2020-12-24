@@ -1,1 +1,6 @@
+##GET APIs
 GET http://localhost:3001/api/categories/
+
+GET http://localhost:3001/api/products/
+
+PUT http://localhost:3001/api/products/
