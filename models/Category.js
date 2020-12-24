@@ -7,6 +7,7 @@ class Category extends Model {}
 Category.init(
   {
     // TODO define columns
+    
   },
   {
     sequelize,
